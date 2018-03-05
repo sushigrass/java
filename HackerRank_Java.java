@@ -767,7 +767,7 @@ boolean is`(int n) {
     return true;
 }
 ////////////////////////////////////////////////////////////////////////////////
-//print list of primes up to n
+//print list of primes up to n varArgs varargs
 void checkPrime(int... numbers) {
     for (int number : numbers) {
         if (isPrime(number)){
@@ -787,6 +787,21 @@ for(int i=3;i<=n;i+=2) {
         return false;
 }
 return true;
+}
+//varargs var args Var Args
+class Add {
+
+
+    void add(int... intArgs) {
+		int sum = 0;
+		String separator = "";
+		for (int i : intArgs) {
+			sum += i;
+			System.out.print(separator + i);
+			separator = "+";
+		}
+		System.out.println("=" + sum);
+    }
 }
 ////////////////////////////////////////////////////////////////////////////////
 //instanceof keyword
@@ -1058,4 +1073,29 @@ public class Solution
          System.out.println(st.getFname());
       }
    }
+}
+////////////////////////////////////////////////////////////////////////////////
+//String split string .split()
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine().trim();
+        if (s.length()==0) {
+            System.out.println("0");
+        } else {
+            String delims = "[ !,?._'@]+";
+            String[] tokens = s.split(delims);
+            System.out.println(tokens.length);
+            for (int i = 0; i < tokens.length; i++){
+                System.out.println(tokens[i]);
+            }
+        }
+
+        scan.close();
+
+    }
 }
