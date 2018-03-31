@@ -2,22 +2,30 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Collections;
+import java.util.*;
+import java.io.*;
 
 class Test {
 
   public static void main(String[] args) {
 
-    Singleton p1 = Singleton.getInstance();
-    System.out.println(p1.getLetterList());
-    LinkedList<String> p1Tiles = p1.getTiles(7);
-    System.out.println(p1.getLetterList());
-    System.out.println("p1 tiles: "+p1Tiles);
-
-    Singleton p2 = Singleton.getInstance();
-    System.out.println(p2.getLetterList());
-    LinkedList<String> p2Tiles = p2.getTiles(7);
-    System.out.println(p2.getLetterList());
-    System.out.println("p2 tiles: "+p2Tiles);
+    BufferedWriter bw = null;
+    try {
+      File file = new File("hello.txt");
+      bw = new BufferedWriter(new FileWriter(file));
+      String[] strings = {"hello", "lol", "hehhe","bye"};
+      for (String s : strings) {
+        bw.write(s+System.lineSeparator());
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        bw.close();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
 
   }
 }

@@ -1127,3 +1127,22 @@ public class Solution {
 
     }
 }
+///////////////////////////////////////////////////////
+//Basketball scores
+static int[] breakingRecords(int[] score) {
+    int min = score[0];
+    int max = score[0];
+    int[] counts = {0,0};
+    for (int i = 0; i<score.length; i++) {
+        if (score[i] < min) {
+            min = score[i];
+            counts[1]++;
+        }
+        if (score[i] > max) {
+            max = score[i];
+            counts[0]++;
+        }
+    }
+    return counts;
+
+}

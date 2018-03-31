@@ -213,6 +213,8 @@ public class generalJava {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+
 		Thread thread = new Thread(new ExampleThread(5));
 		thread.start();
 		try {
