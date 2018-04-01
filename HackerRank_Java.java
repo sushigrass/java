@@ -1146,3 +1146,26 @@ static int[] breakingRecords(int[] score) {
     return counts;
 
 }
+////////////////////////////////////////////////////////////////////////////////
+//Capitalize first letter of each word in sentence
+public static String capitalize(String sentence) {
+
+  String[] sentSplit = sentence.split(" ");
+
+  for (int i = 0; i < sentSplit.length; i++) {
+    sentSplit[i] = sentSplit[i].substring(0,1).toUpperCase()+sentSplit[i].substring(1);
+  }
+  return String.join(" ",sentSplit);
+}
+////////////////////////////////////////////////////////////////////////////////
+// get only capitalized letters in a string sentence
+public static String onlyCapitals(String sentence) {
+
+  Pattern p = Pattern.compile("\\b([A-Z]\\w*)\\b");
+  Matcher matcher = p.matcher(sentence);
+  List<String> sentenceCaps = new ArrayList<>();
+  while(matcher.find()){
+      sentenceCaps.add(matcher.group());
+  }
+  return String.join(" ",sentenceCaps);
+}
