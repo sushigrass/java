@@ -6,7 +6,7 @@ class UsernameValidator {
     public static final String regularExpression = "[a-zA-Z]\\w{7,29}"; //First char alphabetic, then 7-29 alphanumeric chars
     public static final String zeroTo255 = "(\\d{1,2}|(0|1)\\d{2}|2[0-4]\\d|25[0-5])";
     public static final String pattern = "(" + zeroTo255 + "\\.){3}" + zeroTo255; //IP addresses
-
+    str = str.replaceAll
 
 
 }
@@ -76,4 +76,9 @@ public class Solution {
         System.out.println(answer);
         in.close();
     }
+}
+////////////////////////////////////////////////
+//replace all five letter words with five
+public static String fiveLetterWordstoFive(String word) {
+  return word.replaceAll("\\b[\\w]{5}\\b","five");
 }

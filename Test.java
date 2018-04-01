@@ -9,24 +9,10 @@ import java.util.regex.*;
 class Test {
 
   public static void main(String[] args) {
+    System.out.println(fiveLetterWordstoFive("hello my name is petor gillis hahah"));
 
-    String sent = "hello My name is peter lol Capital CAaaaa";
-    System.out.println(onlyCapitals(sent));
   }
-
-  public static String onlyCapitals(String sentence) {
-
-    Pattern p = Pattern.compile("\\b([A-Z]\\w*)\\b");
-    Matcher matcher = p.matcher(sentence);
-    List<String> sentenceCaps = new ArrayList<>();
-    while(matcher.find()){
-        System.out.println(matcher.group());
-        sentenceCaps.add(matcher.group());
-    }
-    return String.join(" ",sentenceCaps);
+  public static String fiveLetterWordstoFive(String word) {
+    return word.replaceAll("\\b[\\w]{5}\\b","five");
   }
-
-
-
-
 }
