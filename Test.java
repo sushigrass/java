@@ -8,9 +8,14 @@ import java.util.regex.*;
 
 class Test {
 
+  static {
+    
+  }
   public static void main(String[] args) {
-    System.out.println(fiveLetterWordstoFive("hello my name is petor gillis hahah"));
-
+      int a = 6;
+      String str = a > 10 ? "Hello" : "Hi";
+      System.out.println(str);
+      System.out.println(7/2);
   }
   public static String fiveLetterWordstoFive(String word) {
     return word.replaceAll("\\b[\\w]{5}\\b","five");

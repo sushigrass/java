@@ -28,6 +28,22 @@ public class Solution {
 ////////////////////////////////////////////////////////////////////////////////
 //Left rotation of int array
 
+
+a: 0 1 2 3 4 5
+b: 2 3 4 5 0 1
+
+length = 6
+shift = 2
+
+b[0] = a[2]
+b[1] = a[3]
+b[2] = a[4]
+b[3] = a[5]
+b[4] = a[0]
+b[5] = a[1]
+
+b[(index + length - shift)%length] = a[index]
+
 public class Solution {
 
     static int[] leftRotation(int[] a, int d) {
@@ -284,63 +300,6 @@ public class Solution {
     }
 }
 ////////////////////////////////////////////////////////////////////////////////
-//Palindrome
-class Palindrome{
-  public static void main(String args[]){
-    String inputString;
-    Scanner in = new Scanner(System.in);
-
-    System.out.println("Input a string");
-    inputString = in.nextLine();
-
-    int length  = inputString.length();
-    int i, begin, end, middle;
-
-    begin  = 0;
-    end    = length - 1;
-    middle = (begin + end)/2;
-
-    for (i = begin; i <= middle; i++) {
-      if (inputString.charAt(begin) == inputString.charAt(end)) {
-        begin++;
-        end--;
-      }
-      else {
-        break;
-      }
-    }
-    if (i == middle + 1) {
-      System.out.println("Palindrome");
-    }
-    else {
-      System.out.println("Not a palindrome");
-    }
-  }
-}
-////////////////////////////////////////////////////////////////////////////////
-//palindrome alternative
-class Palindrome
-{
-   public static void main(String args[])
-   {
-      String original, reverse = "";
-      Scanner in = new Scanner(System.in);
-
-      System.out.println("Enter a string to check if it is a palindrome");
-      original = in.nextLine();
-
-      int length = original.length();
-
-      for ( int i = length - 1; i >= 0; i-- )
-         reverse = reverse + original.charAt(i);
-
-      if (original.equals(reverse))
-         System.out.println("Entered string is a palindrome.");
-      else
-         System.out.println("Entered string is not a palindrome.");
-   }
-}
-////////////////////////////////////////////////////////////////////////////////
 //shorter palindrome with stringbuilder
 
 public class Solution {
@@ -356,50 +315,31 @@ public class Solution {
 }
 ////////////////////////////////////////////////////////////////////////////////
 //palindrome  with for loop
-
-public class Solution {
-
-    public static void main(String[] args) {
-
-        Scanner sc=new Scanner(System.in);
-        String A=sc.next();
-        String ans = "";
-        for (int i = 0; i < A.length(); i++){
-            if (A.charAt(i)!=A.charAt(A.length()-(i+1))){
-                ans = "No";
-                break;
-            }
-            if (A.length()%2==1){
-                if (i == A.length()-(i+1)){
-                    break;
-                }
-            } else {
-                if (A.length()/2==i+1){
-                    break;
-                }
-            }
+boolean isPalindrome(String str) {
+    int n = str.length();
+    for (int i = 0; i < n/2; i++) {
+        if (str.charAt(i) != str.charAt(n-i-1)) {
+          return false;
         }
-        if (!ans.equals("No")){
-            ans = "Yes";
-        }
-        System.out.println(ans);
     }
+    return true;
 }
 ////////////////////////////////////////////////////////////////////////////////
 //find max in array, return all equal to max
-
 public class Solution {
 
-    static int birthdayCakeCandles(int n, int[] ar) {
-        Arrays.sort(ar);
-        int count = 0;
-        for (int i = 0; i < ar.length; i++){
-            if (ar[i]==ar[ar.length-1]){
-                count++;
-            }
-        }
-        return count;
-    }
+  static int birthdayCakeCandles(int n, int[] ar) {
+      Arrays.sort(ar);
+      int count = 0;
+      for (int i = ar.length-1; i >= 0; i--){
+          if (ar[i]==ar[ar.length-1]){
+              count++;
+          } else {
+              break;
+          }
+      }
+      return count;
+  }
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
