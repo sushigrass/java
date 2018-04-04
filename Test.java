@@ -8,16 +8,19 @@ import java.util.regex.*;
 
 class Test {
 
-  static {
-    
-  }
   public static void main(String[] args) {
-      int a = 6;
-      String str = a > 10 ? "Hello" : "Hi";
-      System.out.println(str);
-      System.out.println(7/2);
+      String peter = "peter";
+      String peret = "peret";
+      String perep = "perep";
+      System.out.println(isAnagram(peter, peret));
+      System.out.println(isAnagram(perep, peter));
+
   }
-  public static String fiveLetterWordstoFive(String word) {
-    return word.replaceAll("\\b[\\w]{5}\\b","five");
+  public static boolean isAnagram(String a, String b) {
+      char[] aString = a.toCharArray();
+      char[] bString = b.toCharArray();
+      Arrays.sort(aString);
+      Arrays.sort(bString);
+      return Arrays.equals(bString,aString);
   }
 }

@@ -638,41 +638,6 @@ public class Solution {
     }
 }
 ////////////////////////////////////////////////////////////////////////////////
-//check if anagram
-static boolean isAnagram(String a, String b) {
-    if (a.length()!=b.length()){
-        return false;
-    }
-    a = a.toLowerCase();
-    b = b.toLowerCase();
-    Map<Character, Integer> map = new HashMap<>();
-    for (int k = 0; k < b.length(); k++){
-
-        char letter = b.charAt(k);
-
-        if(!map.containsKey(letter)){
-            map.put(letter, 1);
-        } else {
-            Integer frequency = map.get(letter);
-            map.put(letter, ++frequency );
-        }
-    }
-    for (int k = 0; k < a.length(); k++){
-        char letter = a.charAt(k);
-
-        if(!map.containsKey(letter)){
-            return false;
-        }
-        Integer frequency = map.get(letter);
-        if(frequency == 0){
-            return false;
-        } else {
-            map.put(letter, --frequency);
-        }
-    }
-    return true;
-}
-////////////////////////////////////////////////////////////////////////////////
 //try catch two classes
 public class Solution {
     public static final MyCalculator my_calculator = new MyCalculator();
@@ -1108,4 +1073,14 @@ public static String onlyCapitals(String sentence) {
       sentenceCaps.add(matcher.group());
   }
   return String.join(" ",sentenceCaps);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//isAnagram anagram
+public static boolean isAnagram(String a, String b) {
+    char[] aString = a.toCharArray();
+    char[] bString = b.toCharArray();
+    Arrays.sort(aString);
+    Arrays.sort(bString);
+    return Arrays.equals(bString,aString);
 }
