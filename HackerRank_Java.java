@@ -300,7 +300,7 @@ public class Solution {
     }
 }
 ////////////////////////////////////////////////////////////////////////////////
-//shorter palindrome with stringbuilder
+//shorter palindrome with
 
 public class Solution {
 
@@ -689,7 +689,7 @@ public class Solution {
 System.out.println(in.nextBigInteger().isProbablePrime(100) ? "prime" : "not prime");
 ////////////////////////////////////////////////////////////////////////////////
 //prime using iteration for odds
-boolean is`(int n) {
+boolean isPrime(int n) {
     //check if n is a multiple of 2
     if (n%2==0) return false;
     //if not, then just check the odds
